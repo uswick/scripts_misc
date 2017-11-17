@@ -1,0 +1,15 @@
+ ./configure --with-hpx=/u/uswickra/hpx/hpx-libnbc/sw_coll/hpx/install/lib/pkgconfig/hpx.pc --prefix=/u/uswickra/hpx/hpx-libnbc/sw_coll/hpx-apps/lulesh/parcels/install/
+./configure --with-hpx=/u/uswickra/hpx/hpx-libnbc/sw_coll/test-hpx/hpx/install/lib/pkgconfig/hpx.pc --prefix=/u/uswickra/hpx/hpx-libnbc/sw_coll/hpx-apps/lulesh/parcels/install/
+HPX_THREADS=8 mpirun -np 2  ./luleshparcels -n 8 -x 48 -i 1 --hpx-log-level=default 
+HPX_THREADS=8 mpirun -np 2  ./luleshparcels -n 1000 -x 48 -i 1 --hpx-log-level=default
+HPX_THREADS=8 mpirun -np 2  ./luleshparcels -n 1000 -x 48 -i 1 --hpx-log-level=default
+HPX_THREADS=8 mpirun -np 2  ./luleshparcels -n 1000 -x 48 -i 1 --hpx-log-level=default
+
+
+
+===== test build
+./configure --with-hpx=/u/uswickra/hpx/hpx-libnbc/sw_coll/test-hpx/hpx/install/lib/pkgconfig/hpx.pc --prefix=/u/uswickra/hpx/hpx-libnbc/sw_coll/hpx-apps/lulesh/parcels/install/ CFLAGS="-O3" CXXFLAGS="-O3"
+
+==== build pwc
+./configure --with-hpx=/u/uswickra/hpx/hpx-libnbc/sw_coll/hpx2/hpx2/hpx/install/lib/pkgconfig/hpx.pc --prefix=/u/uswickra/hpx/hpx-libnbc/sw_coll/hpx-apps/lulesh/parcels/install/ CFLAGS="-O3" CXXFLAGS="-O3"
+./configure --with-hpx=/u/uswickra/hpx/hpx-libnbc/sw_coll/hpx2/hpx2/hpx/install_isir/lib/pkgconfig/hpx.pc --prefix=/u/uswickra/hpx/hpx-libnbc/sw_coll/hpx-apps/lulesh/parcels/install/ CFLAGS=-O3 CXXFLAGS=-O3
