@@ -1,0 +1,15 @@
+-Wl,-rpath
+-Wl,/foo
+-Werror
+-Wall
+-std=gnu++11
+-I .
+-I /u/uswickra/.vim/scripts
+-I /u/uswickra/.vim/scripts/foo
+-I /u/uswickra/.vim/scripts/foo/babe
+-I /u/uswickra/.vim/scripts/foo/babe/a2
+-I /u/uswickra/.vim/scripts/foo/babe/a2/b1
+-I /u/uswickra/.vim/scripts/foo/babe/a2/b2
+-I /u/uswickra/.vim/scripts/foo/babe/a1
+-I /u/uswickra/.vim/scripts/foo/cafe
+-I /u/uswickra/.vim/scripts/foo/beef

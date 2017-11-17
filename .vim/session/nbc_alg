@@ -1,0 +1,137 @@
+let SessionLoad = 1
+if &cp | set nocp | endif
+let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
+let v:this_session=expand("<sfile>:p")
+silent only
+cd ~/hpx/hpx-libnbc/lightweight-libNBC/libnbc/libNBC-1.0.1
+if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
+  let s:wipebuf = bufnr('%')
+endif
+set shortmess=aoO
+badd +234 nbc_iallreduce.c
+badd +42 nbc.h
+badd +232 nbc.c
+badd +0 allreduce_alg.c
+badd +146 nbc_internal.h
+silent! argdel *
+edit nbc.c
+set splitbelow splitright
+wincmd _ | wincmd |
+vsplit
+1wincmd h
+wincmd w
+wincmd _ | wincmd |
+split
+1wincmd k
+wincmd w
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+exe 'vert 1resize ' . ((&columns * 31 + 82) / 165)
+exe '2resize ' . ((&lines * 40 + 26) / 53)
+exe 'vert 2resize ' . ((&columns * 133 + 82) / 165)
+exe '3resize ' . ((&lines * 10 + 26) / 53)
+exe 'vert 3resize ' . ((&columns * 133 + 82) / 165)
+argglobal
+enew
+file NERD_tree_2
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+wincmd w
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let s:l = 243 - ((36 * winheight(0) + 20) / 40)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+243
+normal! 010|
+wincmd w
+argglobal
+enew
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+wincmd w
+exe 'vert 1resize ' . ((&columns * 31 + 82) / 165)
+exe '2resize ' . ((&lines * 40 + 26) / 53)
+exe 'vert 2resize ' . ((&columns * 133 + 82) / 165)
+exe '3resize ' . ((&lines * 10 + 26) / 53)
+exe 'vert 3resize ' . ((&columns * 133 + 82) / 165)
+tabedit allreduce_alg.c
+set splitbelow splitright
+wincmd _ | wincmd |
+split
+1wincmd k
+wincmd w
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+exe '1resize ' . ((&lines * 3 + 26) / 53)
+exe '2resize ' . ((&lines * 47 + 26) / 53)
+argglobal
+enew
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+wincmd w
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let s:l = 62 - ((30 * winheight(0) + 23) / 47)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+62
+normal! 026|
+wincmd w
+2wincmd w
+exe '1resize ' . ((&lines * 3 + 26) / 53)
+exe '2resize ' . ((&lines * 47 + 26) / 53)
+tabnext 2
+if exists('s:wipebuf')
+  silent exe 'bwipe ' . s:wipebuf
+endif
+unlet! s:wipebuf
+set winheight=1 winwidth=20 shortmess=filnxtToO
+let s:sx = expand("<sfile>:p:r")."x.vim"
+if file_readable(s:sx)
+  exe "source " . fnameescape(s:sx)
+endif
+let &so = s:so_save | let &siso = s:siso_save
+doautoall SessionLoadPost
+unlet SessionLoad
+" vim: set ft=vim :
