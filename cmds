@@ -1,0 +1,5 @@
+salloc -N 2 -t 5 --exclusive
+salloc -N 2  --ntasks-per-node=1  -t 5 --exclusive mpirun ./a.out
+mpicc test.c -I /u/uswickra/hpx/libnbc-photon/libNBC-1.0.1/photon/include/ -L/u/uswickra/hpx/libnbc-photon/libNBC-1.0.1/photon/install2/lib -lphoton -Wl,-rpath=/u/uswickra/hpx/libnbc-photon/libNBC-1.0.1/photon/install2/lib -o test
+salloc -N 2  --ntasks-per-node=1  -t 5 --exclusive /bin/bash
+mpirun --report-bindings  -np 4 --mca mtl ^psm ./photon_test_nbc_coll
