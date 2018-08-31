@@ -5,6 +5,10 @@ PRG=$1
 #sleep 10 && echo "done" > /N/u/uswickra/BR2Plus/ugini/ugni_net/uGNI_Net/my.out &
 
 $PRG &
+
+#sleep number of seconds to avoid connecting too early
+sleep 5
+
 HOST=$(hostname)
 echo "$HOST"
 
