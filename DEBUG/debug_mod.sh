@@ -6,8 +6,8 @@ LAUNCH="srun"
 echo "enter program to remote debug [ENTER]:"
 read PRG
 
-echo "enter program PID to remote debug [ENTER]:"
-read PID
+#echo "enter program PID to remote debug [ENTER]:"
+#read PID
 
 echo "enter (remote) host to debug [ENTER]:"
 read HOST
